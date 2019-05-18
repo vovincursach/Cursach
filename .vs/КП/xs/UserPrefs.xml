@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{E67B87EE-5FCA-4EA9-B5BD-5A0B6BA4F431}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="КП/ISqlCommand.cs">
+    <Files>
+      <File FileName="КП/SQLHandler.cs" Line="78" Column="14" />
+      <File FileName="КП/packages.config" Line="1" Column="1" />
+      <File FileName="КП/App.config" Line="1" Column="1" />
+      <File FileName="КП/CarModel.cs" Line="7" Column="45" />
+      <File FileName="КП/ISqlCommand.cs" Line="6" Column="25" />
+      <File FileName="КП/ISqlData.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="КП" expanded="True">
+            <Node name="КП" expanded="True">
+              <Node name="ISqlCommand.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.КП PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

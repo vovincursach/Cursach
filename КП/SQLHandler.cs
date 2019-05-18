@@ -1,56 +1,105 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Diagnostics;
 
 namespace КП
 {
-    static class SQLHandler
+    public class SQLHandler : ISqlCommand
     {
 
-        public static string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public static SqlConnection SqlConnection { get; set; }
+
+        public static string ErrorMessage { get; set; }
 
         static SQLHandler()
         {
             SqlConnection = new SqlConnection();
+
             SqlConnection.ConnectionString = ConnectionString;
+
             SqlConnection.Open();
         }
 
-        public static void Insert(string data)
+        public void Insert(ISqlData data)
         {
-            var result = data.ToString().Replace(" ", "").Replace(",", " ");
-            //SQLHandler.Insert(result);
-            Trace.WriteLine(result);
-            var x = new[] {data};
-            //string[] arr = new string[7];
-            //foreach (var item in data)
-            //{
-            //    if(item == " ")
+            if (data != null) 
+            {
+                SqlCommand insertCommand = new SqlCommand($"INSERT INTO Cars (CarName, Mark, Color, Price) VALUES (@carname, @mark, @color, @price)", SqlConnection);
 
-            //}
-            SqlCommand Insert = new SqlCommand($"INSERT INTO Cars (CarName, Mark, Color, Price) VALUES ('{x[0]}', '{x[1]}', '{x[2]}', {x[3]})", SqlConnection);
-            Insert.ExecuteNonQuery();
+                SqlParameter carNameParam = new SqlParameter("@carname", data.Name);
+
+                SqlParameter carMarkParam = new SqlParameter("@mark", data.Mark);
+
+                SqlParameter carColorParam = new SqlParameter("@color", data.Color);
+
+                SqlParameter carPriceParam = new SqlParameter("@price", data.Price);
+
+                insertCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam });
+
+                insertCommand.ExecuteNonQuery();
+            }
+            else
+            {
+                throw new Exception("Query is empty");
+            }
         }
 
-        public static void Update(string data)
+        public void Update(ISqlData data)
         {
-            SqlCommand Update = new SqlCommand("UPDATE Cars SET Color='Black' WHERE Color='Red'", SqlConnection);
-            Update.ExecuteNonQuery();
+            if (data != null)
+            {
+                SqlCommand updateCommand = new SqlCommand("Update Cars SET Color='Black' WHERE Color='Red'", SqlConnection);
+
+                SqlParameter carNameParam = new SqlParameter("@carname", data.Name);
+
+                SqlParameter carMarkParam = new SqlParameter("@mark", data.Mark);
+
+                SqlParameter carColorParam = new SqlParameter("@color", data.Color);
+
+                SqlParameter carPriceParam = new SqlParameter("@price", data.Price);
+
+                updateCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam });
+
+                updateCommand.ExecuteNonQuery();
+            }
+            else
+            {
+                throw new Exception("Query is empty");
+            }
         }
 
-        public static void Delete(string data)
+        public void Delete(ISqlData data)
         {
-            SqlCommand Delete = new SqlCommand("DELETE Cars", SqlConnection);
-            Delete.ExecuteNonQuery();
+            if (data != null)
+            {
+                SqlCommand deleteCommand = new SqlCommand($"Delete Cars where CarName = {data.Name}", SqlConnection);
+
+                deleteCommand.ExecuteNonQuery();
+            }
+            else
+            {
+                throw new Exception("Query is empty");
+            }
         }
 
-        public static void ReadTable(string data)
+        public ISqlData[] Select(string value ,string paramToSelect = null)
         {
-            SqlCommand ReadTable = new SqlCommand("SELECT * FROM Cars", SqlConnection);
-            SqlDataReader reader =  ReadTable.ExecuteReader();
+            var selectCommand = paramToSelect != null
+                ? new SqlCommand($"SELECT * FROM Cars where {paramToSelect} = {value}", SqlConnection)
+                : new SqlCommand($"SELECT * FROM Cars", SqlConnection);
+
+            var response = selectCommand.ExecuteReader();
+
+            var result = new ISqlData[response.ToString().Length]; // Поменяю этот метот, оставил так, чтобы оно билдилось
+
+            foreach (var item in response)
+            {
+
+            }
+
+            return result;
         }
     }
 }
