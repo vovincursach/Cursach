@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+
 namespace КП
 {
     public interface ISqlCommand
@@ -9,6 +10,6 @@ namespace КП
 
         void Update(ISqlData data);
 
-        ISqlData[] Select(string value, string paramToSelect = null);
+        ArrayList SelectAll();
     }
 }

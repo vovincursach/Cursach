@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Collections;
 
 namespace КП
 {
     public class SQLHandler : ISqlCommand
     {
 
-        private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public static SqlConnection SqlConnection { get; set; }
+        public SqlConnection SqlConnection { get; set; }
 
-        public static string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; }
 
-        static SQLHandler()
+        public SQLHandler()
         {
             SqlConnection = new SqlConnection();
 
@@ -84,22 +85,25 @@ namespace КП
             }
         }
 
-        public ISqlData[] Select(string value ,string paramToSelect = null)
+        public ArrayList SelectAll()
         {
-            var selectCommand = paramToSelect != null
-                ? new SqlCommand($"SELECT * FROM Cars where {paramToSelect} = {value}", SqlConnection)
-                : new SqlCommand($"SELECT * FROM Cars", SqlConnection);
+            var selectCommand = new SqlCommand($"SELECT * FROM Cars", SqlConnection);
 
             var response = selectCommand.ExecuteReader();
 
-            var result = new ISqlData[response.ToString().Length]; // Поменяю этот метот, оставил так, чтобы оно билдилось
+            //var list = new ArrayList();
 
-            foreach (var item in response)
-            {
+            //foreach (var item in response)
+            //{
+                //list.Add();
+            //}
 
-            }
+            return new ArrayList();
+        }
 
-            return result;
+        public void CloseConnection()
+        {
+            SqlConnection.Close();
         }
     }
 }

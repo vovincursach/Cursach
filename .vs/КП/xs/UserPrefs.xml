@@ -1,24 +1,13 @@
 ﻿<Properties StartupConfiguration="{E67B87EE-5FCA-4EA9-B5BD-5A0B6BA4F431}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="КП/SQLHandler.cs">
     <Files>
-      <File FileName="КП/SQLHandler.cs" Line="95" Column="123" />
-      <File FileName="КП/packages.config" Line="1" Column="1" />
+      <File FileName="КП/SQLHandler.cs" Line="98" Column="28" />
       <File FileName="КП/App.config" Line="1" Column="1" />
-      <File FileName="КП/CarModel.cs" Line="11" Column="41" />
-      <File FileName="КП/ISqlCommand.cs" Line="12" Column="68" />
+      <File FileName="КП/CarModel.cs" Line="6" Column="1" />
+      <File FileName="КП/ISqlCommand.cs" Line="1" Column="26" />
       <File FileName="КП/ISqlData.cs" Line="12" Column="9" />
+      <File FileName="КП/Program.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="КП" expanded="True">
-            <Node name="КП" expanded="True">
-              <Node name="SQLHandler.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
