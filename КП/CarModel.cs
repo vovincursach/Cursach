@@ -1,10 +1,13 @@
-﻿using System;
-namespace КП
+﻿namespace КП
 {
-    public class CarModel
+    public class CarModel : ISqlData
     {
-        public CarModel()
-        {
-        }
+        public string Name { get; set; }
+
+        public string Color { get; set; }
+
+        public string Price { get; set; }
+
+        public string Mark { get; set; }
     }
 }
