@@ -1,35 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace КП
 {
     public partial class Form1 : Form
     {
+        Timer tmr = new Timer() { Interval = 6000 };
         public Form1()
         {
             InitializeComponent();
-
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            tmr.Tick += tmr_Tick;
+            tmr.Start();
         }
 
-        private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        void tmr_Tick(object sender, EventArgs e)
         {
-            var result = sender.ToString().Replace(" ", "").Replace(",", " ");
-            //SQLHandler.Insert(result);
-            Trace.WriteLine(result);
+            progressBar1.PerformStep();
+            this.Close();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            SQLHandler.Insert(textBox1.Text);
+            timer1.Interval = 500; // 500 миллисекунд
+            timer1.Enabled = true;
+            timer1.Tick += timer1_Tick;
+            if (progressBar1.Value == 500)
+            {
+                Form2 newForm = new Form2();
+                newForm.Show();
+            }
+        }
+
+        void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBar1.PerformStep();
         }
     }
 }
