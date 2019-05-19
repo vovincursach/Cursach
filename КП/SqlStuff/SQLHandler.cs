@@ -91,14 +91,24 @@ namespace КП
 
             var response = selectCommand.ExecuteReader();
 
-            //var list = new ArrayList();
+            ArrayList x = new ArrayList();
 
-            //foreach (var item in response)
-            //{
-                //list.Add();
-            //}
+            if (response.HasRows)
+            {
+                while (response.Read())
+                {
+                    x.Add(new CarModel
+                    {
+                        Name = response.GetString(1),
+                        Mark = response.GetString(2),
+                        Color = response.GetString(3),
+                        Price = response.GetDecimal(4)
+                    });
+                }
+                response.Close();
+            }
 
-            return new ArrayList();
+            return x;
         }
 
         public void CloseConnection()

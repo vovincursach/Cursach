@@ -7,7 +7,7 @@ namespace КП
 
          string Color { get; set; }
 
-         string Price { get; set; }
+         decimal Price { get; set; }
 
          string Mark { get; set; }
     }
