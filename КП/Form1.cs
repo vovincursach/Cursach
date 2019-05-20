@@ -5,6 +5,7 @@ namespace КП
 {
     public partial class Form1 : Form
     {
+        private bool IsJoke = false;
         public Form1()
         {
             InitializeComponent();
@@ -35,14 +36,28 @@ namespace КП
                 if (progressBar1.Value == 20)
                     label1.Text = "Правильно оформляем таблицы ...";
 
-                if(progressBar1.Value == 60)
+                if (progressBar1.Value == 40 && IsJoke)
+                    label1.Text = "Зизизизаза";
+
+                if (progressBar1.Value == 60)
                     label1.Text = "Готовим кампутер к работе ...";
+
+                if (progressBar1.Value == 60 && IsJoke)
+                    label1.Text = "Азазазизи Кек перд";
 
                 if (progressBar1.Value == 80)
                     label1.Text = "Скачиваем курсовую с ГДЗ.online ...";
 
-                if (progressBar1.Value == 100)
-                    label1.Text = "Готово!!!";
+                if (progressBar1.Value == 80 && IsJoke)
+                    label1.Text = "Все, не ори!!! ща заработает";
+
+                if (progressBar1.Value == 100 && !IsJoke)
+                {
+                    //label1.Text = "Готово!!!";
+                    label1.Text = "Азазаза";
+                    progressBar1.Value = 20;
+                    IsJoke = true;
+                }
             }
         }
     }
