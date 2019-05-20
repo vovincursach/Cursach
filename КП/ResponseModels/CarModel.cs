@@ -9,5 +9,7 @@
         public decimal Price { get; set; }
 
         public string Mark { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }

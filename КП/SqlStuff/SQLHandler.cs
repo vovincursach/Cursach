@@ -102,6 +102,33 @@ namespace КП
                         Name = response.GetString(1),
                         Mark = response.GetString(2),
                         Color = response.GetString(3),
+                        Price = response.GetDecimal(4),
+                        //Image = response.GetBytes(5) for future
+                    });
+                }
+                response.Close();
+            }
+
+            return x;
+        }
+
+        public ArrayList SelectAll(ISqlData searchData)
+        {
+            var selectCommand = new SqlCommand($"SELECT * FROM Cars where Name = {searchData.Name} and Price = {searchData.Price}", SqlConnection);
+
+            var response = selectCommand.ExecuteReader();
+
+            ArrayList x = new ArrayList();
+
+            if (response.HasRows)
+            {
+                while (response.Read())
+                {
+                    x.Add(new CarModel
+                    {
+                        Name = response.GetString(1),
+                        Mark = response.GetString(2),
+                        Color = response.GetString(3),
                         Price = response.GetDecimal(4)
                     });
                 }

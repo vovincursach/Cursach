@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace КП
@@ -26,23 +17,42 @@ namespace КП
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            var data = new CarModel { 
-            Name = textBox1.Text
-            //
-            // для того, чтобы убрать парсинг строки в обьект нужно добавить 4 текстбокса
-            //
+            var data = new CarModel
+            { 
+            Name = textBox1.Text,
+            Color = textBox2.Text,
+            Mark = textBox3.Text,
+            Price = Convert.ToDecimal(textBox4.Text)
             };
 
-            SQLHandler y = new SQLHandler();
+            SQLHandler search = new SQLHandler();
 
-            y.SelectAll();
+            var results = search.SelectAll(data);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             var result = sender.ToString().Replace(" ", "").Replace(",", " ");
-            //SQLHandler.Insert(result);
-            Trace.WriteLine(result);
+        }
+
+        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void TextBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox2.Text = "";
+        }
+
+        private void TextBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox3.Text = "";
+        }
+
+        private void TextBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox4.Text = "";
         }
     }
 }

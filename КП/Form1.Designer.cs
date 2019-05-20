@@ -29,25 +29,39 @@
             this.components = new System.ComponentModel.Container();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(59, 56);
+            this.progressBar1.Location = new System.Drawing.Point(52, 46);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(432, 51);
+            this.progressBar1.Size = new System.Drawing.Size(432, 21);
             this.progressBar1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Подождите ...";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(544, 178);
+            this.ClientSize = new System.Drawing.Size(554, 136);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Name = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

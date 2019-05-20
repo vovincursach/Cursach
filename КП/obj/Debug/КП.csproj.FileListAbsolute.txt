@@ -35,3 +35,16 @@ E:\CP\Cursach\КП\obj\Debug\КП.csproj.CopyComplete
 E:\CP\Cursach\КП\obj\Debug\КП.exe
 E:\CP\Cursach\КП\obj\Debug\КП.pdb
 E:\CP\Cursach\КП\obj\Debug\КП.Form2.resources
+C:\Нова папка\Cursach\КП\bin\Debug\КП.exe.config
+C:\Нова папка\Cursach\КП\bin\Debug\КП.exe
+C:\Нова папка\Cursach\КП\bin\Debug\КП.pdb
+C:\Нова папка\Cursach\КП\bin\Debug\System.Data.SqlClient.dll
+C:\Нова папка\Cursach\КП\obj\Debug\КП.csprojAssemblyReference.cache
+C:\Нова папка\Cursach\КП\obj\Debug\КП.Form1.resources
+C:\Нова папка\Cursach\КП\obj\Debug\КП.Form2.resources
+C:\Нова папка\Cursach\КП\obj\Debug\КП.Properties.Resources.resources
+C:\Нова папка\Cursach\КП\obj\Debug\КП.csproj.GenerateResource.cache
+C:\Нова папка\Cursach\КП\obj\Debug\КП.csproj.CoreCompileInputs.cache
+C:\Нова папка\Cursach\КП\obj\Debug\КП.csproj.CopyComplete
+C:\Нова папка\Cursach\КП\obj\Debug\КП.exe
+C:\Нова папка\Cursach\КП\obj\Debug\КП.pdb
