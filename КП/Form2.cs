@@ -26,8 +26,15 @@ namespace КП
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            var x = new CarModel() { Name = textBox1.Text };
+            var data = new CarModel { 
+            Name = textBox1.Text
+            //
+            // для того, чтобы убрать парсинг строки в обьект нужно добавить 4 текстбокса
+            //
+            };
+
             SQLHandler y = new SQLHandler();
+
             y.SelectAll();
         }
 
