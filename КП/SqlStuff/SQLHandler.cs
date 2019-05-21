@@ -27,7 +27,7 @@ namespace КП
         {
             if (data != null) 
             {
-                SqlCommand insertCommand = new SqlCommand($"INSERT INTO Cars (CarName, Mark, Color, Price) VALUES (@carname, @mark, @color, @price)", SqlConnection);
+                SqlCommand insertCommand = new SqlCommand($"INSERT INTO Cars (CarName, Mark, Color, Price, Fuel, EnginePower, EngineVolume, TankVolume) VALUES (@carname, @mark, @color, @price, @fuel, @enginepower, @enginevolume, @tankvolume)", SqlConnection);
 
                 SqlParameter carNameParam = new SqlParameter("@carname", data.Name);
 
@@ -37,7 +37,15 @@ namespace КП
 
                 SqlParameter carPriceParam = new SqlParameter("@price", data.Price);
 
-                insertCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam });
+                SqlParameter carFuelParam = new SqlParameter("@fuel", data.Fuel);
+
+                SqlParameter carEPParam = new SqlParameter("@enginepower", data.EnginePower);
+
+                SqlParameter carEVParam = new SqlParameter("@enginevolume", data.EngineVolume);
+
+                SqlParameter carTVParam = new SqlParameter("@tankvolume", data.TankVolume);
+
+                insertCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam, carFuelParam, carEPParam, carEVParam, carTVParam });
 
                 insertCommand.ExecuteNonQuery();
             }
@@ -61,7 +69,15 @@ namespace КП
 
                 SqlParameter carPriceParam = new SqlParameter("@price", data.Price);
 
-                updateCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam });
+                SqlParameter carFuelParam = new SqlParameter("@fuel", data.Fuel);
+
+                SqlParameter carEPParam = new SqlParameter("@enginepower", data.EnginePower);
+
+                SqlParameter carEVParam = new SqlParameter("@enginevolume", data.EngineVolume);
+
+                SqlParameter carTVParam = new SqlParameter("@tankvolume", data.TankVolume);
+
+                updateCommand.Parameters.AddRange(new[] { carNameParam, carMarkParam, carColorParam, carPriceParam, carFuelParam, carEPParam, carEVParam, carTVParam });
 
                 updateCommand.ExecuteNonQuery();
             }
@@ -103,6 +119,10 @@ namespace КП
                         Mark = response.GetString(2),
                         Color = response.GetString(3),
                         Price = response.GetDecimal(4),
+                        Fuel = response.GetString(5),
+                        EnginePower = response.GetInt32(6),
+                        EngineVolume = response.GetInt32(7),
+                        TankVolume = response.GetInt32(8)
                         //Image = response.GetBytes(5) for future
                     });
                 }
@@ -129,7 +149,11 @@ namespace КП
                         Name = response.GetString(1),
                         Mark = response.GetString(2),
                         Color = response.GetString(3),
-                        Price = response.GetDecimal(4)
+                        Price = response.GetDecimal(4),
+                        Fuel = response.GetString(5),
+                        EnginePower = response.GetInt32(6),
+                        EngineVolume = response.GetInt32(7),
+                        TankVolume = response.GetInt32(8)
                     });
                 }
                 response.Close();

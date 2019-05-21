@@ -1,6 +1,6 @@
 ﻿namespace КП
 {
-    partial class Form1
+    partial class LoadingScreen
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -34,7 +34,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(52, 46);
+            this.progressBar1.Location = new System.Drawing.Point(68, 61);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(432, 21);
             this.progressBar1.TabIndex = 2;
@@ -42,19 +42,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 70);
+            this.label1.Location = new System.Drawing.Point(226, 85);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(98, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Подождите ...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // LoadingScreen
             // 
             this.ClientSize = new System.Drawing.Size(554, 136);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
-            this.Name = "Form1";
+            this.Name = "LoadingScreen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

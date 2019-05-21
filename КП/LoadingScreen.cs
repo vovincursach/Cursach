@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace КП
 {
-    public partial class Form1 : Form
+    public partial class LoadingScreen : Form
     {
         private bool IsJoke = false;
-        public Form1()
+        public LoadingScreen()
         {
             InitializeComponent();
 
