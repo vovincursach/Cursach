@@ -48,3 +48,6 @@ C:\Нова папка\Cursach\КП\obj\Debug\КП.csproj.CoreCompileInputs.cach
 C:\Нова папка\Cursach\КП\obj\Debug\КП.csproj.CopyComplete
 C:\Нова папка\Cursach\КП\obj\Debug\КП.exe
 C:\Нова папка\Cursach\КП\obj\Debug\КП.pdb
+E:\CP\Cursach\КП\obj\Debug\КП.LoadingScreen.resources
+E:\CP\Cursach\КП\obj\Debug\КП.Form3.resources
+E:\CP\Cursach\КП\obj\Debug\КП.Form4.resources

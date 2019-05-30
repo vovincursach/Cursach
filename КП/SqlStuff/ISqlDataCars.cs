@@ -1,6 +1,6 @@
 ﻿namespace КП
 {
-    public interface ISqlData
+    public interface ISqlDataCars
     {
         string Name { get; set; }
         string Color { get; set; }
@@ -10,6 +10,5 @@
         int EnginePower { get; set; }
         int EngineVolume { get; set; }
         int TankVolume { get; set; }
-        byte[] Image { get; set; }
     }
 }

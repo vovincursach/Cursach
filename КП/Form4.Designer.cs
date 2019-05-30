@@ -1,6 +1,6 @@
 ﻿namespace КП
 {
-    partial class Form2
+    partial class Form4
     {
         /// <summary>
         /// Required designer variable.
@@ -41,17 +41,20 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(896, 381);
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(802, 352);
             this.dataGridView1.TabIndex = 0;
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(12, 409);
+            this.BackButton.Location = new System.Drawing.Point(13, 400);
             this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(93, 37);
+            this.BackButton.Size = new System.Drawing.Size(75, 38);
             this.BackButton.TabIndex = 1;
             this.BackButton.Text = "Назад";
             this.BackButton.UseVisualStyleBackColor = true;
@@ -59,9 +62,9 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(203, 409);
+            this.AddButton.Location = new System.Drawing.Point(167, 399);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(103, 37);
+            this.AddButton.Size = new System.Drawing.Size(95, 38);
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "Додати";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -69,9 +72,9 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(417, 409);
+            this.SaveButton.Location = new System.Drawing.Point(354, 399);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(103, 37);
+            this.SaveButton.Size = new System.Drawing.Size(105, 38);
             this.SaveButton.TabIndex = 3;
             this.SaveButton.Text = "Зберегти";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -79,9 +82,9 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(624, 409);
+            this.DeleteButton.Location = new System.Drawing.Point(541, 399);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(113, 37);
+            this.DeleteButton.Size = new System.Drawing.Size(101, 39);
             this.DeleteButton.TabIndex = 4;
             this.DeleteButton.Text = "Видалити";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -89,27 +92,27 @@
             // 
             // NextButton
             // 
-            this.NextButton.Location = new System.Drawing.Point(810, 409);
+            this.NextButton.Location = new System.Drawing.Point(716, 398);
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(98, 37);
+            this.NextButton.Size = new System.Drawing.Size(99, 39);
             this.NextButton.TabIndex = 5;
             this.NextButton.Text = "Вперед";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
-            // Form2
+            // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 466);
+            this.ClientSize = new System.Drawing.Size(827, 463);
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form2";
-            this.Text = "Таблиця \"Авто\"";
+            this.Name = "Form4";
+            this.Text = "Таблиця \"Продажі\"";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -1,6 +1,6 @@
 ﻿namespace КП
 {
-    public class CarModel : ISqlData
+    public class CarModel : ISqlDataCars
     {
         public string Name { get; set; }
 
@@ -17,7 +17,5 @@
         public int EngineVolume { get; set; }
 
         public int TankVolume { get; set; }
-
-        public byte[] Image { get; set; }
     }
 }

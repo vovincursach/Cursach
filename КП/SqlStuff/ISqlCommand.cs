@@ -4,12 +4,18 @@ namespace КП
 {
     public interface ISqlCommand
     {
-        void Insert(ISqlData data);
+        void InsertCars(ISqlDataCars data);
 
-        void Delete(ISqlData data);
+        void DeleteCars(ISqlDataCars data);
 
-        void Update(ISqlData data);
+        void UpdateCars(ISqlDataCars data);
 
-        ArrayList SelectAll();
+        void InsertCustomers(ISqlDataCustomers data);
+
+        void DeleteCustomers(ISqlDataCustomers data);
+
+        void UpdateCustomers(ISqlDataCustomers data);
+
+        ArrayList SelectAllCars();
     }
 }
