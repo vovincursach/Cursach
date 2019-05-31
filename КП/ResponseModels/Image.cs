@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace КП.ResponseModels
 {
-    class Image
+    public class Image
     {
         public Image(int id, string filename, string title, byte[] data)
         {

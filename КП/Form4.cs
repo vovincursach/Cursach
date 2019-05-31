@@ -80,20 +80,16 @@ namespace КП
 
             commandBuilder = new SqlCommandBuilder(adapter);
 
-            adapter.InsertCommand = new SqlCommand("UpdateTableCustomers", SqlConnection)
+            adapter.InsertCommand = new SqlCommand("UpdateTableOrders", SqlConnection)
             {
                 CommandType = CommandType.StoredProcedure
             };
 
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@firstname", SqlDbType.NVarChar, 50, "FirstName"));
-
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@lastname", SqlDbType.NVarChar, 50, "LastName"));
-
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@middlename", SqlDbType.NVarChar, 50, "MiddleName"));
-
             adapter.InsertCommand.Parameters.Add(new SqlParameter("@phonenumber", SqlDbType.VarChar, 50, "PhoneNumber"));
 
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@email", SqlDbType.NVarChar, 50, "Email"));
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@carName", SqlDbType.NVarChar, 50, "CarName"));
+
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@date", SqlDbType.NVarChar, 50, "DateOrders"));
 
             SqlParameter parameter = adapter.InsertCommand.Parameters.Add("@id", SqlDbType.Int, 0, "Id");
 
@@ -105,15 +101,15 @@ namespace КП
         // обработчик кнопки Вперед
         private void NextButton_Click(object sender, EventArgs e)
         {
-            if (ds.Tables["Customers"].Rows.Count < pageSize) return;
+            if (ds.Tables["Orders"].Rows.Count < pageSize) return;
 
             pageNumber++;
 
             adapter = new SqlDataAdapter(GetSql(), SqlConnection);
 
-            ds.Tables["Customers"].Rows.Clear();
+            ds.Tables["Orders"].Rows.Clear();
 
-            adapter.Fill(ds, "Customers");
+            adapter.Fill(ds, "Orders");
         }
 
         // обработчик кнопки Назад
@@ -125,13 +121,13 @@ namespace КП
 
             adapter = new SqlDataAdapter(GetSql(), SqlConnection);
 
-            ds.Tables["Customers"].Rows.Clear();
+            ds.Tables["Orders"].Rows.Clear();
 
-            adapter.Fill(ds, "Customers");
+            adapter.Fill(ds, "Orders");
         }
         private string GetSql()
         {
-            return "SELECT * FROM Customers ORDER BY Id OFFSET ((" + pageNumber + ") * " + pageSize + ") " + "ROWS FETCH NEXT " + pageSize + "ROWS ONLY";
+            return "SELECT * FROM Orders ORDER BY Id OFFSET ((" + pageNumber + ") * " + pageSize + ") " + "ROWS FETCH NEXT " + pageSize + "ROWS ONLY";
         }
     }
 }

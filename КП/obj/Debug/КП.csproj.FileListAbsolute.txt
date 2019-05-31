@@ -26,7 +26,6 @@ E:\CP\Cursach\КП\bin\Debug\КП.exe.config
 E:\CP\Cursach\КП\bin\Debug\КП.exe
 E:\CP\Cursach\КП\bin\Debug\КП.pdb
 E:\CP\Cursach\КП\bin\Debug\System.Data.SqlClient.dll
-E:\CP\Cursach\КП\obj\Debug\КП.csprojAssemblyReference.cache
 E:\CP\Cursach\КП\obj\Debug\КП.Form1.resources
 E:\CP\Cursach\КП\obj\Debug\КП.Properties.Resources.resources
 E:\CP\Cursach\КП\obj\Debug\КП.csproj.GenerateResource.cache
@@ -51,3 +50,4 @@ C:\Нова папка\Cursach\КП\obj\Debug\КП.pdb
 E:\CP\Cursach\КП\obj\Debug\КП.LoadingScreen.resources
 E:\CP\Cursach\КП\obj\Debug\КП.Form3.resources
 E:\CP\Cursach\КП\obj\Debug\КП.Form4.resources
+E:\CP\Cursach\КП\obj\Debug\КП.csprojAssemblyReference.cache

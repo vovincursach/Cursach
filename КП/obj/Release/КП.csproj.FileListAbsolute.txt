@@ -1,0 +1,16 @@
+E:\CP\Cursach\КП\bin\Release\КП.exe.config
+E:\CP\Cursach\КП\bin\Release\КП.exe
+E:\CP\Cursach\КП\bin\Release\КП.pdb
+E:\CP\Cursach\КП\bin\Release\System.Data.SqlClient.dll
+E:\CP\Cursach\КП\obj\Release\КП.csprojAssemblyReference.cache
+E:\CP\Cursach\КП\obj\Release\КП.Form2.resources
+E:\CP\Cursach\КП\obj\Release\КП.Form3.resources
+E:\CP\Cursach\КП\obj\Release\КП.Form4.resources
+E:\CP\Cursach\КП\obj\Release\КП.LoadingScreen.resources
+E:\CP\Cursach\КП\obj\Release\КП.Form1.resources
+E:\CP\Cursach\КП\obj\Release\КП.Properties.Resources.resources
+E:\CP\Cursach\КП\obj\Release\КП.csproj.GenerateResource.cache
+E:\CP\Cursach\КП\obj\Release\КП.csproj.CoreCompileInputs.cache
+E:\CP\Cursach\КП\obj\Release\КП.csproj.CopyComplete
+E:\CP\Cursach\КП\obj\Release\КП.exe
+E:\CP\Cursach\КП\obj\Release\КП.pdb

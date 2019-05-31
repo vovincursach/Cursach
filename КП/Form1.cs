@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +8,8 @@ namespace КП
 {
     public partial class Form1 : Form
     {
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -18,20 +22,55 @@ namespace КП
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
             var data = new CarModel
             {
                 Name = textBox1.Text,
-                Color = textBox2.Text,
+                Color = textBox4.Text,
                 Mark = textBox3.Text,
-                Price = Convert.ToDecimal(textBox4.Text),
+                Price = Convert.ToDecimal(textBox2.Text),
                 Fuel = textBox9.Text
             };
             
             SQLHandler search = new SQLHandler();
 
+            search.SaveFileToDatabase(@"E:\CP\Cursach\КП\Images\1.jpg");
+
             var results = search.SelectAllCars(data);
 
-            Image image = Image.FromFile("путь к файлу");
+            if (results.Count < 1)
+            {
+                MessageBox.Show(
+                    "Товарів не знайдено.",
+                    "Помилка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+            }
+            else
+            {
+                textBox8.Text = ((CarModel)results[0]).Name.ToString();
+
+                textBox7.Text = ((CarModel)results[0]).Price.ToString();
+
+                textBox6.Text = ((CarModel)results[0]).Color.ToString();
+
+                textBox5.Text = ((CarModel)results[0]).Mark.ToString();
+
+                textBox10.Text = ((CarModel)results[0]).Fuel.ToString();
+
+                textBox11.Text = ((CarModel)results[0]).EnginePower.ToString();
+
+                textBox12.Text = ((CarModel)results[0]).EngineVolume.ToString();
+
+                textBox13.Text = ((CarModel)results[0]).TankVolume.ToString();
+
+            }
+
+            search.ReadFileFromDatabase("1");
+
+            Image image = Image.FromFile(search.Images[0].FileName);
 
             pictureBox1.Image = image;
         }
@@ -102,6 +141,16 @@ namespace КП
         {
             Form4 newForm = new Form4();
             newForm.Show();
+        }
+
+        private void TextBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox9_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox9.Text = "";
         }
     }
 }

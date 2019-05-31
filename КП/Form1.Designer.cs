@@ -48,6 +48,10 @@
             this.автоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.покупціToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.продажіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(348, 300);
+            this.button1.Location = new System.Drawing.Point(316, 318);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 44);
@@ -89,7 +93,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(491, 358);
+            this.groupBox1.Size = new System.Drawing.Size(491, 391);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Пошук в базі";
@@ -102,6 +106,8 @@
             this.textBox9.Size = new System.Drawing.Size(296, 22);
             this.textBox9.TabIndex = 5;
             this.textBox9.Text = "Введіть тип палива";
+            this.textBox9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TextBox9_MouseClick);
+            this.textBox9.TextChanged += new System.EventHandler(this.TextBox9_TextChanged);
             // 
             // textBox4
             // 
@@ -147,6 +153,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox13);
+            this.groupBox2.Controls.Add(this.textBox12);
+            this.groupBox2.Controls.Add(this.textBox11);
+            this.groupBox2.Controls.Add(this.textBox10);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.textBox6);
@@ -156,7 +166,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(775, 358);
+            this.groupBox2.Size = new System.Drawing.Size(775, 391);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Наші пропозиції";
@@ -167,6 +177,7 @@
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(412, 284);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -205,7 +216,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(519, 455);
+            this.button2.Location = new System.Drawing.Point(519, 480);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(220, 52);
@@ -237,23 +248,51 @@
             // автоToolStripMenuItem
             // 
             this.автоToolStripMenuItem.Name = "автоToolStripMenuItem";
-            this.автоToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.автоToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.автоToolStripMenuItem.Text = "Авто";
             this.автоToolStripMenuItem.Click += new System.EventHandler(this.АвтоToolStripMenuItem_Click);
             // 
             // покупціToolStripMenuItem
             // 
             this.покупціToolStripMenuItem.Name = "покупціToolStripMenuItem";
-            this.покупціToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.покупціToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.покупціToolStripMenuItem.Text = "Покупці";
             this.покупціToolStripMenuItem.Click += new System.EventHandler(this.ПокупціToolStripMenuItem_Click);
             // 
             // продажіToolStripMenuItem
             // 
             this.продажіToolStripMenuItem.Name = "продажіToolStripMenuItem";
-            this.продажіToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.продажіToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.продажіToolStripMenuItem.Text = "Продажі";
             this.продажіToolStripMenuItem.Click += new System.EventHandler(this.ПродажіToolStripMenuItem_Click);
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(24, 223);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(296, 22);
+            this.textBox10.TabIndex = 6;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(24, 267);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(296, 22);
+            this.textBox11.TabIndex = 7;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(24, 307);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(296, 22);
+            this.textBox12.TabIndex = 8;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(24, 353);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(296, 22);
+            this.textBox13.TabIndex = 9;
             // 
             // Form1
             // 
@@ -303,5 +342,9 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.ToolStripMenuItem покупціToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem продажіToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }

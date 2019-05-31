@@ -16,6 +16,8 @@ namespace КП
 
         public SqlConnection SqlConnection { get; set; }
 
+        public List<Image> Images { get; set; }
+
         public string ErrorMessage { get; set; }
 
         public SQLHandler()
@@ -145,7 +147,7 @@ namespace КП
 
         public ArrayList SelectAllCars(ISqlDataCars searchData)
         {
-            var selectCommand = new SqlCommand($"SELECT * FROM Cars where Name = {searchData.Name} and Price = {searchData.Price}", SqlConnection);
+            var selectCommand = new SqlCommand($"SELECT * FROM Cars where CarName = '{searchData.Name}' and Price = {searchData.Price}", SqlConnection);
 
             var response = selectCommand.ExecuteReader();
 
@@ -249,9 +251,7 @@ namespace КП
 
         public void SaveFileToDatabase(string fileName)
         {
-            SqlCommand saveCommand = new SqlCommand();
-
-            saveCommand.CommandText = @"INSERT INTO (PhileName, Title, ImageData)Images VALUES (@PhileName, @Title, @ImageData)";
+            SqlCommand saveCommand = new SqlCommand("INSERT INTO Images (PhileName, Title, ImageData) VALUES (@PhileName, @Title, @ImageData)", SqlConnection);
 
             saveCommand.Parameters.Add("@PhileName", SqlDbType.NVarChar, 50);
 
@@ -259,7 +259,7 @@ namespace КП
 
             saveCommand.Parameters.Add("@ImageData", SqlDbType.Image, 1000000);
 
-            string title = "";
+            string title = fileName;
 
             byte[] imageData;
 
@@ -280,27 +280,35 @@ namespace КП
             saveCommand.ExecuteNonQuery();
         }
 
-        public void ReadFileFromDatabase()
+        public void ReadFileFromDatabase(string Title)
         {
+            CloseConnection();
+
+            SqlConnection.Open();
+
             List<Image> images = new List<Image>();
 
-            var selectCommand = new SqlCommand($"SELECT * FROM Images", SqlConnection);
+            var selectCommand = new SqlCommand($"SELECT * FROM Images WHERE PhileName = '{Title}.jpg'", SqlConnection);
 
-            SqlDataReader reader = selectCommand.ExecuteReader();
-
-            while (reader.Read())
+            var reader = selectCommand.ExecuteReader();
+            if (reader.HasRows)
             {
-                int id = reader.GetInt32(0);
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
 
-                string filename = reader.GetString(1);
+                    string filename = reader.GetString(1);
 
-                string title = reader.GetString(2);
+                    string title = reader.GetString(2);
 
-                byte[] data = (byte[])reader.GetValue(3);
+                    byte[] data = (byte[])reader.GetValue(3);
 
-                Image image = new Image(id, filename, title, data);
+                    Image image = new Image(id, filename, title, data);
 
-                images.Add(image);
+                    images.Add(image);
+                }
+
+                reader.Close();
             }
 
             if(images.Count>0)
@@ -310,16 +318,8 @@ namespace КП
                     fs.Write(images[0].Data, 0, images[0].Data.Length);
                 }
             }
-        }
 
-        public int DataGridView()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM Cars", SqlConnection);
-
-            DataSet ds = new DataSet();
-
-            return adapter.Fill(ds);
-
+            Images = images;
         }
 
         public void CloseConnection()
