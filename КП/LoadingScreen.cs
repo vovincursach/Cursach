@@ -34,27 +34,27 @@ namespace КП
                 progressBar1.Value += 10;
 
                 if (progressBar1.Value == 20)
-                    label1.Text = "Правильно оформляем таблицы ...";
+                    label1.Text = "Нормалізуємо таблиці ...";
 
                 if (progressBar1.Value == 40 && IsJoke)
-                    label1.Text = "Зизизизаза";
+                    label1.Text = "Звчекайте будь-даска";
 
                 if (progressBar1.Value == 60)
-                    label1.Text = "Готовим кампутер к работе ...";
+                    label1.Text = "Підготовка програми до роботи ...";
 
                 if (progressBar1.Value == 60 && IsJoke)
-                    label1.Text = "Азазазизи Кек перд";
+                    label1.Text = "Підключення до бази даних";
 
                 if (progressBar1.Value == 80)
-                    label1.Text = "Скачиваем курсовую с ГДЗ.online ...";
+                    label1.Text = "Завантажуємо курсову с Github ...";
 
                 if (progressBar1.Value == 80 && IsJoke)
-                    label1.Text = "Все, не ори!!! ща заработает";
+                    label1.Text = "Будь-ласка, не йдіть!!! зара запрацює";
 
                 if (progressBar1.Value == 100 && !IsJoke)
                 {
                     //label1.Text = "Готово!!!";
-                    label1.Text = "Азазаза";
+                    label1.Text = "ЄЄЄЄЄ";
                     progressBar1.Value = 20;
                     IsJoke = true;
                 }

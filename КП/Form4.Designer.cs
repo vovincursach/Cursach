@@ -39,20 +39,25 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(963, 350);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(13, 400);
+            this.BackButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.BackButton.Location = new System.Drawing.Point(137, 397);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 38);
             this.BackButton.TabIndex = 1;
@@ -62,7 +67,8 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(167, 399);
+            this.AddButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.AddButton.Location = new System.Drawing.Point(269, 397);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(95, 38);
             this.AddButton.TabIndex = 2;
@@ -72,7 +78,8 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(354, 399);
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.SaveButton.Location = new System.Drawing.Point(425, 397);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(105, 38);
             this.SaveButton.TabIndex = 3;
@@ -82,7 +89,8 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(541, 399);
+            this.DeleteButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.DeleteButton.Location = new System.Drawing.Point(592, 396);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(101, 39);
             this.DeleteButton.TabIndex = 4;
@@ -92,7 +100,8 @@
             // 
             // NextButton
             // 
-            this.NextButton.Location = new System.Drawing.Point(716, 398);
+            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.NextButton.Location = new System.Drawing.Point(753, 396);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(99, 39);
             this.NextButton.TabIndex = 5;
@@ -104,13 +113,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 463);
+            this.ClientSize = new System.Drawing.Size(988, 461);
             this.Controls.Add(this.NextButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.dataGridView1);
+            this.MinimumSize = new System.Drawing.Size(758, 47);
             this.Name = "Form4";
             this.Text = "Таблиця \"Продажі\"";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -10,5 +10,6 @@
         int EnginePower { get; set; }
         int EngineVolume { get; set; }
         int TankVolume { get; set; }
+        decimal Discount { get; set; }
     }
 }

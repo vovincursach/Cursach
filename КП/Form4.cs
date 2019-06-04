@@ -14,6 +14,7 @@ namespace КП
 {
     public partial class Form4 : Form
     {
+
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public SqlConnection SqlConnection { get; set; }
@@ -25,6 +26,7 @@ namespace КП
         DataSet ds;
 
         SqlDataAdapter adapter;
+
 
         SqlCommandBuilder commandBuilder;
 
@@ -85,17 +87,26 @@ namespace КП
                 CommandType = CommandType.StoredProcedure
             };
 
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@phonenumber", SqlDbType.VarChar, 50, "PhoneNumber"));
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@car", SqlDbType.NVarChar, 50, "Car"));
 
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@carName", SqlDbType.NVarChar, 50, "CarName"));
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@customer", SqlDbType.NVarChar, 50, "Customer"));
 
-            adapter.InsertCommand.Parameters.Add(new SqlParameter("@date", SqlDbType.NVarChar, 50, "DateOrders"));
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@date", SqlDbType.DateTime, 0, "DateOrder"));
+
+            adapter.InsertCommand.Parameters.Add(new SqlParameter("@sale", SqlDbType.NVarChar, 50, "Sale"));
 
             SqlParameter parameter = adapter.InsertCommand.Parameters.Add("@id", SqlDbType.Int, 0, "Id");
 
             parameter.Direction = ParameterDirection.Output;
 
             adapter.Update(ds);
+
+            MessageBox.Show(
+                    "Дані збережено.",
+                    "Повідомлення",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
         }
 
         // обработчик кнопки Вперед
@@ -129,5 +140,12 @@ namespace КП
         {
             return "SELECT * FROM Orders ORDER BY Id OFFSET ((" + pageNumber + ") * " + pageSize + ") " + "ROWS FETCH NEXT " + pageSize + "ROWS ONLY";
         }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        
     }
 }

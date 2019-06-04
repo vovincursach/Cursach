@@ -17,5 +17,7 @@
         public int EngineVolume { get; set; }
 
         public int TankVolume { get; set; }
+
+        public decimal Discount { get; set; }
     }
 }

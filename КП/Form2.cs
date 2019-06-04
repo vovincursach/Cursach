@@ -106,7 +106,14 @@ namespace КП
 
            parameter.Direction = ParameterDirection.Output;
 
-           adapter.Update(ds);  
+            adapter.Update(ds);
+
+            MessageBox.Show(
+                    "Дані збережено.",
+                    "Повідомлення",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
         }
 
         // обработчик кнопки Вперед
