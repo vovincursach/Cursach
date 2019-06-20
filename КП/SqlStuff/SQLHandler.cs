@@ -28,7 +28,7 @@ namespace КП
             SqlConnection.Open();
         }  
 
-        public ArrayList SelectAllCars(ISqlDataCars searchData)
+        public ArrayList SelectCar(ISqlDataCars searchData)
         {
             var selectCommand = new SqlCommand($"SELECT *, Price - Price*0.1 AS Discount FROM Cars WHERE CarName = '{searchData.Name}' AND Mark = '{searchData.Mark}' AND Color = '{searchData.Color}'", SqlConnection);
 
@@ -63,7 +63,44 @@ namespace КП
                 }
                 response.Close();
             }
+            return x;
+        }
 
+        public ArrayList SelectCarWithoutColor(ISqlDataCars searchData)
+        {
+            var selectCommand = new SqlCommand($"SELECT *, Price - Price*0.1 AS Discount FROM Cars WHERE CarName = '{searchData.Name}' AND Mark = '{searchData.Mark}'", SqlConnection);
+
+            var response = selectCommand.ExecuteReader();
+
+            ArrayList x = new ArrayList();
+
+            if (response.HasRows)
+            {
+                while (response.Read())
+                {
+                    x.Add(new CarModel
+                    {
+                        Name = response.GetString(1),
+
+                        Mark = response.GetString(2),
+
+                        Color = response.GetString(3),
+
+                        Price = response.GetDecimal(4),
+
+                        Fuel = response.GetString(5),
+
+                        EnginePower = response.GetInt32(6),
+
+                        EngineVolume = response.GetInt32(7),
+
+                        TankVolume = response.GetInt32(8),
+
+                        Discount = response.GetDecimal(9)
+                    });
+                }
+                response.Close();
+            }
             return x;
         }
 

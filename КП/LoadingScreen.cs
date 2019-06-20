@@ -14,7 +14,7 @@ namespace КП
 
             FormBorderStyle = FormBorderStyle.None;
 
-            timer1.Interval = 3000;
+            timer1.Interval = 1000;
 
             timer1.Enabled = true;
 
@@ -34,13 +34,13 @@ namespace КП
                 progressBar1.Value += 10;
 
                 if (progressBar1.Value == 20)
-                    label1.Text = "Нормалізуємо таблиці ...";
+                    label1.Text = "Нормалізуємо таблиці...";
 
                 if (progressBar1.Value == 40 && IsJoke)
-                    label1.Text = "Звчекайте будь-даска";
+                    label1.Text = "Зачекайте будь-ласка";
 
                 if (progressBar1.Value == 60)
-                    label1.Text = "Підготовка програми до роботи ...";
+                    label1.Text = "Підготовка програми до роботи...";
 
                 if (progressBar1.Value == 60 && IsJoke)
                     label1.Text = "Підключення до бази даних";
@@ -53,8 +53,7 @@ namespace КП
 
                 if (progressBar1.Value == 100 && !IsJoke)
                 {
-                    //label1.Text = "Готово!!!";
-                    label1.Text = "ЄЄЄЄЄ";
+                    label1.Text = "Готово!!! (Шуткую, нє)";
                     progressBar1.Value = 20;
                     IsJoke = true;
                 }

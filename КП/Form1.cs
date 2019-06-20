@@ -12,7 +12,7 @@ namespace КП
         ToolStripLabel timeLabel;
         ToolStripLabel infoLabel;
         Timer timer;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -56,129 +56,231 @@ namespace КП
                 Color = textBox3.Text
             };
 
-            SQLHandler search = new SQLHandler();
-
-            var results = search.SelectAllCars(data);
-
-            if (results.Count < 1)
+            if(data.Mark == "" & data.Name == "")
             {
                 MessageBox.Show(
-                    "Товарів не знайдено.",
-                    "Помилка",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1); 
+                       "Введіть марку та виробника авто для пошуку.",
+                       "Помилка",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error,
+                       MessageBoxDefaultButton.Button1);
             }
-            else
+
+            SQLHandler search = new SQLHandler();
+
+            if (data.Name != "" & data.Mark != "" & data.Color != "")
             {
-                textBox7.Text = ((CarModel)results[0]).Mark.ToString();
+                var results = search.SelectCar(data);
 
-                textBox8.Text = ((CarModel)results[0]).Name.ToString();
-
-                textBox6.Text = ((CarModel)results[0]).Color.ToString();
-
-                textBox10.Text = ((CarModel)results[0]).Fuel.ToString();
-
-                textBox11.Text = ((CarModel)results[0]).EnginePower.ToString();
-
-                textBox12.Text = ((CarModel)results[0]).EngineVolume.ToString();
-
-                textBox13.Text = ((CarModel)results[0]).TankVolume.ToString();
-
-                textBox5.Text = ((CarModel)results[0]).Price.ToString();
-
-                textBox2.Text = ((CarModel)results[0]).Discount.ToString();
-
-                switch (data.Name)
+                if (results.Count < 1)
                 {
-                    case "Kaen":
-
-                        search.ReadFileFromDatabase("Porsche_Cayenne.jpg");
-
-                        
-
-                        break;
-
-                    case "Q7":
-
-                        search.ReadFileFromDatabase("Audi_Q7.jpg");
-
-                        break;
-
-                    case "X6":
-
-                        search.ReadFileFromDatabase("BMW_X6.jpg");
-
-                        break;
-
-                    case "Kamaro":
-
-                        search.ReadFileFromDatabase("Chevrolet_Camaro.jpg");
-
-                        break;
-
-                    case "Golf":
-
-                        search.ReadFileFromDatabase("Volkswagen_Golf.jpg");
-
-                        break;
-
-                    case "Charger":
-
-                        search.ReadFileFromDatabase("Dodge_Charger.jpg");
-
-                        break;
-
-                    case "Aventador":
-
-                        search.ReadFileFromDatabase("Lamborghini_Aventador.jpg");
-
-                        break;
-
-                    case "Logan XX века":
-
-                        search.ReadFileFromDatabase("Renault_Logan.png");
-
-                        break;
-
-                    case "3000 GT":
-
-                        search.ReadFileFromDatabase("Mitsubishi_3000GT.jpg");
-
-                        break;
-
-                    case "X-Trail":
-
-                        search.ReadFileFromDatabase("Nissan_X-Trail.jpg");
-
-                        break;
-
-                    case "Corolla":
-
-                        search.ReadFileFromDatabase("Toyota_Corolla.jpg");
-
-                        break;
+                    MessageBox.Show(
+                        "Товар не знайдено.",
+                        "Помилка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
                 }
+                else
+                {
+                    textBox7.Text = ((CarModel)results[0]).Mark.ToString();
 
-                Image image = Image.FromFile(search.Images[0].FileName);
+                    textBox8.Text = ((CarModel)results[0]).Name.ToString();
 
-                pictureBox1.Image = image;
+                    textBox6.Text = ((CarModel)results[0]).Color.ToString();
+
+                    textBox10.Text = ((CarModel)results[0]).Fuel.ToString();
+
+                    textBox11.Text = ((CarModel)results[0]).EnginePower.ToString();
+
+                    textBox12.Text = ((CarModel)results[0]).EngineVolume.ToString();
+
+                    textBox13.Text = ((CarModel)results[0]).TankVolume.ToString();
+
+                    textBox5.Text = ((CarModel)results[0]).Price.ToString();
+
+                    textBox2.Text = ((CarModel)results[0]).Discount.ToString();
+
+                    switch (data.Name)
+                    {
+                        case "Cayenne":
+
+                            search.ReadFileFromDatabase("Porsche_Cayenne.jpg");
+
+                            break;
+
+                        case "Q7":
+
+                            search.ReadFileFromDatabase("Audi_Q7.jpg");
+
+                            break;
+
+                        case "X6":
+
+                            search.ReadFileFromDatabase("BMW_X6.jpg");
+
+                            break;
+
+                        case "Kamaro":
+
+                            search.ReadFileFromDatabase("Chevrolet_Camaro.jpg");
+
+                            break;
+
+                        case "Golf":
+
+                            search.ReadFileFromDatabase("Volkswagen_Golf.jpg");
+
+                            break;
+
+                        case "Charger":
+
+                            search.ReadFileFromDatabase("Dodge_Charger.jpg");
+
+                            break;
+
+                        case "Aventador":
+
+                            search.ReadFileFromDatabase("Lamborghini_Aventador.jpg");
+
+                            break;
+
+                        case "Logan XX века":
+
+                            search.ReadFileFromDatabase("Renault_Logan.png");
+
+                            break;
+
+                        case "3000 GT":
+
+                            search.ReadFileFromDatabase("Mitsubishi_3000GT.jpg");
+
+                            break;
+
+                        case "X-Trail":
+
+                            search.ReadFileFromDatabase("Nissan_X-Trail.jpg");
+
+                            break;
+
+                        case "Corolla":
+
+                            search.ReadFileFromDatabase("Toyota_Corolla.jpg");
+
+                            break;
+                    }
+
+                    Image image = Image.FromFile(search.Images[0].FileName);
+
+                    pictureBox1.Image = image;
+                }
             }
-        }
+            else if (data.Name != "" & data.Mark != "" & data.Color == "")
+            {
+                var results = search.SelectCarWithoutColor(data);
 
-        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox1.Text = "";
-        }
+                if (results.Count < 1)
+                {
+                    MessageBox.Show(
+                        "Товарів не знайдено.",
+                        "Помилка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    textBox7.Text = ((CarModel)results[0]).Mark.ToString();
 
-        private void TextBox3_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox3.Text = "";
-        }
+                    textBox8.Text = ((CarModel)results[0]).Name.ToString();
 
-        private void TextBox4_MouseClick(object sender, MouseEventArgs e)
-        {
-            textBox4.Text = "";
+                    textBox6.Text = ((CarModel)results[0]).Color.ToString();
+
+                    textBox10.Text = ((CarModel)results[0]).Fuel.ToString();
+
+                    textBox11.Text = ((CarModel)results[0]).EnginePower.ToString();
+
+                    textBox12.Text = ((CarModel)results[0]).EngineVolume.ToString();
+
+                    textBox13.Text = ((CarModel)results[0]).TankVolume.ToString();
+
+                    textBox5.Text = ((CarModel)results[0]).Price.ToString();
+
+                    textBox2.Text = ((CarModel)results[0]).Discount.ToString();
+
+                    switch (data.Name)
+                    {
+                        case "Cayenne":
+
+                            search.ReadFileFromDatabase("Porsche_Cayenne.jpg");
+
+                            break;
+
+                        case "Q7":
+
+                            search.ReadFileFromDatabase("Audi_Q7.jpg");
+
+                            break;
+
+                        case "X6":
+
+                            search.ReadFileFromDatabase("BMW_X6.jpg");
+
+                            break;
+
+                        case "Kamaro":
+
+                            search.ReadFileFromDatabase("Chevrolet_Camaro.jpg");
+
+                            break;
+
+                        case "Golf":
+
+                            search.ReadFileFromDatabase("Volkswagen_Golf.jpg");
+
+                            break;
+
+                        case "Charger":
+
+                            search.ReadFileFromDatabase("Dodge_Charger.jpg");
+
+                            break;
+
+                        case "Aventador":
+
+                            search.ReadFileFromDatabase("Lamborghini_Aventador.jpg");
+
+                            break;
+
+                        case "Logan XX века":
+
+                            search.ReadFileFromDatabase("Renault_Logan.png");
+
+                            break;
+
+                        case "3000 GT":
+
+                            search.ReadFileFromDatabase("Mitsubishi_3000GT.jpg");
+
+                            break;
+
+                        case "X-Trail":
+
+                            search.ReadFileFromDatabase("Nissan_X-Trail.jpg");
+
+                            break;
+
+                        case "Corolla":
+
+                            search.ReadFileFromDatabase("Toyota_Corolla.jpg");
+
+                            break;
+                    }
+                    Image image = Image.FromFile(search.Images[0].FileName);
+
+                    pictureBox1.Image = image;
+                }
+            }
         }
         
         private void АвтоToolStripMenuItem_Click(object sender, EventArgs e)
